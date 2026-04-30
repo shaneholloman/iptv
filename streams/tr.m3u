@@ -480,3 +480,5 @@ https://zindikurmanci.zaroktv.com.tr/hls/stream.m3u8
 https://canli.edessatv.com/hls/stream.m3u8
 #EXTINF:-1 tvg-id="IlkeTV.tr@HD",Ilke TV (1080p)
 https://stream.ilketv.com.tr/hls/ilkecanli.m3u8
+#EXTINF:-1 tvg-id="Nickelodeon.tr@SD",Nickelodeon (720p)
+http://95.70.222.188:1234/stream/tivibucocuk/nickelodeon/stream.m3u8

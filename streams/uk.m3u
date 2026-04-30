@@ -285,3 +285,5 @@ https://mini.allinonereborn.fun/tata.php?id=11783
 https://mini.allinonereborn.fun/tata.php?id=11779
 #EXTINF:-1 tvg-id="CBeebiesAsia.uk@SD",CBeebies Asia (720p)
 https://cdn10jtedge.indihometv.com/atm/DASH/cbeebies/manifest.mpd
+#EXTINF:-1 tvg-id="NickelodeonGlobal.uk@SD",Nickelodeon Global (576p)
+http://46.149.191.217:9011/play/a018
