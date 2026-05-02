@@ -27,8 +27,10 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Update internal playlists
-        run: npm run playlist:update --silent >> $GITHUB_OUTPUT
         id: playlist-update
+        run: |
+          npm run playlist:update
+          echo "processed_issues=$(cat temp/logs/playlist_update.log)" >> $GITHUB_OUTPUT
       - name: Check internal playlists
         run: |
           npm run playlist:lint
@@ -44,10 +46,11 @@ jobs:
           git config user.name "iptv-bot[bot]"
           git config user.email "84861620+iptv-bot[bot]@users.noreply.github.com"
       - name: Commit changes to /streams
+        if: steps.playlist-update.outputs.processed_issues != 0
         run: |
           git add streams
           git status
-          git commit --allow-empty -m "[Bot] Update /streams" -m "Committed by [iptv-bot](https://github.com/apps/iptv-bot) via [update](https://github.com/iptv-org/iptv/actions/runs/${{ github.run_id }}) workflow." -m "${{ steps.playlist-update.outputs.OUTPUT }}" --no-verify
+          git commit --allow-empty -m "[Bot] Update /streams" -m "Committed by [iptv-bot](https://github.com/apps/iptv-bot) via [update](https://github.com/iptv-org/iptv/actions/runs/${{ github.run_id }}) workflow." -m "${{ steps.playlist-update.outputs.processed_issues }}" --no-verify
       - name: Commit changes to PLAYLIST.md
         run: |
           git add PLAYLISTS.md
